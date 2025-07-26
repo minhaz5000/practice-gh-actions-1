@@ -1,4 +1,4 @@
-name: build-test-deply
+name: build-test-deploy
 on: push
 jobs:
   build:
@@ -7,14 +7,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Install node
-        uses: actions/setup-node
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
       - name: Install dependencies
         run: npm ci
       - name: run linter
-        run: npm lint
+        run: npm run lint
       - name: run test
-        run: npm test
+        run: npm run test
       - name: deploy
         run: echo "Deployed Project"
